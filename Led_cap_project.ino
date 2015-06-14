@@ -24,22 +24,10 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   matrix.begin();
   start_sequence();
+  matrix.setTextWrap(false);
 }
 
-void loop() {
-  /* check if data has been sent from the computer: */
 
-  message1();
-//  message4();
-  message3();
-  message2();
-  message2();
-  message3();
-  message2();
-  message3();
-//  message4();
-  message2();
-}
 void start_sequence() {
   matrix.fillRect(0, 0, 32, 32, matrix.Color333(7, 0, 0));
   delay(500);
@@ -48,6 +36,7 @@ void start_sequence() {
   delay(500);
   clear_display();
   matrix.fillRect(0, 0, 32, 32, matrix.Color333(0, 0, 7));
+  delay(500);
   delay(500);
   clear_display();
 }
@@ -62,46 +51,8 @@ void write_text(String text, int r, int g, int b) {
   matrix.println(text);
 }
 
-void message1(){
-  matrix.setTextColor(matrix.Color333(0,0,0)); 
-  matrix.setCursor(1, 0); 
+void loop() {
   matrix.setTextSize(1);
-  matrix.println(" Thx");
-  matrix.println(" MOM");
-  matrix.println("  &");
-  matrix.println(" DAD");
-  delay(100);
-  matrix.fillScreen(matrix.Color333(0, 0, 0));
-}
-
-void message2(){
-  matrix.setTextSize(4);
-  
-  matrix.setCursor(5, 0); 
-  matrix.fillScreen(matrix.Color333(0, 0, 0));
-  matrix.setTextColor(matrix.Color333(7,1,1)); 
-  matrix.println("O");
-  delay(500);
-  
-  matrix.fillScreen(matrix.Color333(0, 0, 0));
-  matrix.setTextColor(matrix.Color333(7,1,1)); 
-  matrix.setCursor(5, 0); 
-  matrix.println("S");
-  delay(500);
-  
-  matrix.fillScreen(matrix.Color333(0, 0, 0));
-  matrix.setTextColor(matrix.Color333(7,1,1)); 
-  matrix.setCursor(5, 0); 
-  matrix.println("U");
-  delay(500);
-  
-  matrix.fillScreen(matrix.Color333(0, 0, 0));
-}
-
-
-void message3(){  
-  matrix.setTextSize(1);
-  
   matrix.fillScreen(matrix.Color333(0, 0, 0));
   matrix.setTextColor(matrix.Color333(7,0,0)); 
   matrix.setCursor(7, 4); 
@@ -109,24 +60,41 @@ void message3(){
   matrix.setCursor(4, 14); 
   matrix.println("EECS");
   delay(2100);
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
   
+  
+  matrix.setTextColor(matrix.Color333(0,7,0)); 
+  matrix.setCursor(1, 0); 
+  matrix.setTextSize(1);
+  matrix.println(" Thx");
+  matrix.println(" MOM");
+  matrix.println("  &");
+  matrix.println(" DAD");
+  delay(2000);
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
+  
+
+  
+  
+  matrix.setTextSize(4);
+  matrix.setCursor(5, 0); 
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
+  matrix.setTextColor(matrix.Color333(7,1,1)); 
+  matrix.println("O");
+  delay(500);
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
+  matrix.setTextColor(matrix.Color333(7,1,1)); 
+  matrix.setCursor(5, 0); 
+  matrix.println("S");
+  delay(500);
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
+  matrix.setTextColor(matrix.Color333(7,1,1)); 
+  matrix.setCursor(5, 0); 
+  matrix.println("U");
+  delay(500);
+  matrix.fillScreen(matrix.Color333(0, 0, 0));
+  matrix.setCursor(5, 0); 
+  start_sequence();
   matrix.fillScreen(matrix.Color333(0, 0, 0));
 
 }
-//
-//void message4(){  
-//  matrix.setTextSize(1);
-//  
-//  matrix.fillScreen(matrix.Color333(0, 0, 0));
-//  matrix.setTextColor(matrix.Color333(7,0,0)); 
-//  matrix.setCursor(10, 4); 
-//  matrix.println("We");
-//  matrix.setCursor(4, 14); 
-//  matrix.println("did");
-//  matrix.setCursor(10, 24); 
-//  matrix.println("it");
-//  delay(2100);
-//  
-//  matrix.fillScreen(matrix.Color333(0, 0, 0));
-//
-//}
